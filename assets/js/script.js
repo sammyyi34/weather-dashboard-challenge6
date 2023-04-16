@@ -1,12 +1,23 @@
 var textAreaEl = document.querySelector('input');
 var saveBtn = document.querySelector('button');
 
-function setLocalStorage() {
+//sets the userInput into the local storage
+function setLocalStorage(event) {
+  // prevent page from refreshing because of button
+  event.preventDefault();
   userInput = textAreaEl.value;
-  window.localStorage.setItem('cityName', JSON.stringify(userInput));
+  // sets an object
+  window.localStorage.setItem('cityName', userInput);
 }
 
-function getFromLocal
+function getFromLocal(event) {
+  event.preventDefault()
+  var cityNames = window.localStorage.getItem('cityName');
+  console.log(cityNames);
+
+}
+
+
 
 
 
