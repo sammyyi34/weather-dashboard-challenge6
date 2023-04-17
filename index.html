@@ -43,11 +43,21 @@
           <div class="row">
             <div class="col-8 col-md-12 textbox">
               <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-                Example element with utilities
+                <h2 id="current-day"></h2>
               </div>
             </div>
             <h2>5-Day Forecast:</h2>
-            <div class="col-3 col-md-2">
+            <div class="col-4 col-md-2">
+              <div class="card" style="width: 12rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <h5 class="card-title" id="day1"></h5>
+                  <p class="card-text" id="day1Info"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 col-md-2">
               <div class="card" style="width: 12rem;">
                 <!-- <img src="..." class="card-img-top" alt="..."> -->
                 <div class="card-body">
@@ -57,7 +67,7 @@
               </div>
             </div>
 
-            <div class="col-3 col-md-2">
+            <div class="col-4 col-md-2">
               <div class="card" style="width: 12rem;">
                 <!-- <img src="..." class="card-img-top" alt="..."> -->
                 <div class="card-body">
@@ -67,7 +77,7 @@
               </div>
             </div>
 
-            <div class="col-3 col-md-2">
+            <div class="col-4 col-md-2">
               <div class="card" style="width: 12rem;">
                 <!-- <img src="..." class="card-img-top" alt="..."> -->
                 <div class="card-body">
@@ -77,17 +87,7 @@
               </div>
             </div>
 
-            <div class="col-3 col-md-2">
-              <div class="card" style="width: 12rem;">
-                <!-- <img src="..." class="card-img-top" alt="..."> -->
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-3 col-md-2">
+            <div class="col-4 col-md-2">
               <div class="card" style="width: 12rem;">
               <!-- <img src="..." class="card-img-top" alt="..."> -->
               <div class="card-body">
@@ -101,6 +101,11 @@
       </div>
     </section>
   </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </html>
