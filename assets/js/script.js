@@ -1,6 +1,9 @@
 var textAreaEl = document.querySelector('input');
 var saveBtn = document.querySelector('button');
-var currentDayEl = document.getElementById('current-day')
+var currentDay = document.getElementById('current-day');
+var currentTemp = document.getElementById('current-temp');
+var currentWind = document.getElementById('current-wind');
+var currentHumidity = document.getElementById('current-humidity');
 
 // displays current date of the city the user searched
 function displayTime() {
@@ -12,9 +15,9 @@ function displayTime() {
   var rightNow = dayjs().format('(MM/DD/YYYY)');
 
   if (cityName) {
-    currentDayEl.textContent = cityName + ' ' + rightNow;
+    currentDay.textContent = cityName + ' ' + rightNow;
   } else {
-    currentDayEl.textContent = "";   // <---- if there is not city name in local storage then now text is displayed
+    currentDay.textContent = "";   // <---- if there is not city name in local storage then now text is displayed
   }
 }
 
@@ -31,6 +34,7 @@ function getFromLocal() {
 }
 
 function todayWeatherInfo(cityName) {
+  var cityName = 'atlanta';
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d36ac030ab884f835f45f7845b925646`;
   
   fetch(apiUrl)
@@ -38,9 +42,9 @@ function todayWeatherInfo(cityName) {
     return response.json();
   })
   .then(function(data) {
-    console.log(data.main.temp);
-    console.log(data.wind.speed);
-    console.log(data.main.humidity);
+    currentTemp.innerHTML += ' ' + data.main.temp + '°F';
+    currentWind.innerHTML += ' ' +  data.wind.speed + ' MPH';
+    currentHumidity.innerHTML += ' ' +  data.main.humidity + '%';
   })
 }
 
@@ -57,6 +61,9 @@ function setLocalStorage(event) {
 
   // passes cityName as argument to getWeatherInfo func
   todayWeatherInfo(cityName)
+  currentTemp.innerHTML = ''
+  currentWind.innerHTML = '' 
+  currentHumidity.innerHTML = ''
 
   // allows the displayTime function to only be called when user hits the search button
   displayTime();
